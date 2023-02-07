@@ -18,13 +18,13 @@ body{
   text-transform: uppercase;
   font-family: 'Lato', sans-serif;
   font-size: .7em;
-  display: grid;
 }
 
 .weeks, .days, .hours, .minutes {
   display: inline-block;
   padding: 5px;
   margin: 2px;
+  width: 90px;
   border-radius: 5px;
 }
 
@@ -49,18 +49,6 @@ body{
   color:  #001d3d;
   font-size: 4em;
   text-align: center;
-}
-
-@media (min-width: 200px) {
-  #timer {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 400px) {
-  #timer {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
 }
     </style>
 </head>

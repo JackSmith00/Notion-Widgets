@@ -20,6 +20,10 @@ body{
   font-size: .7em;
 }
 
+#timer > div {
+  display: inline-block;
+}
+
 .weeks, .days, .hours, .minutes {
   display: inline-block;
   padding: 5px;
@@ -55,17 +59,19 @@ body{
 <body>
     
 <div id="timer">
-
+  <div>
     <div class="weeks"> 
-        <div id="weeks" class="numbers "> </div>weeks</div> 
-      <div class="days"> 
-        <div  id="days" class="numbers"> </div>days</div> 
-      <div class="hours"> 
-        <div  id="hours" class="numbers"> </div>hours</div> 
-      <div   class="minutes"> 
-        <div id="minutes" class="numbers"> </div>minutes</div> 
-      </div>
-
+      <div id="weeks" class="numbers "> </div>weeks</div> 
+    <div class="days"> 
+      <div  id="days" class="numbers"> </div>days</div> 
+  </div>
+  <div>
+    <div class="hours"> 
+      <div  id="hours" class="numbers"> </div>hours</div> 
+    <div   class="minutes"> 
+      <div id="minutes" class="numbers"> </div>minutes</div> 
+    </div>
+  </div>
 </div>
 
 </body>

@@ -63,12 +63,12 @@ body{
     <div class="weeks"> 
       <div id="weeks" class="numbers "> </div>weeks</div> 
     <div class="days"> 
-      <div  id="days" class="numbers"> </div>days</div> 
+      <div id="days" class="numbers"> </div>days</div> 
   </div>
   <div>
     <div class="hours"> 
-      <div  id="hours" class="numbers"> </div>hours</div> 
-    <div   class="minutes"> 
+      <div id="hours" class="numbers"> </div>hours</div> 
+    <div class="minutes"> 
       <div id="minutes" class="numbers"> </div>minutes</div> 
     </div>
   </div>
@@ -77,7 +77,6 @@ body{
 </body>
 <script>
     const myDate = new Date('May 24, 2023 23:59:00');
-    console.log(myDate);
 
 // countdown
 let timer = setInterval(function() {
@@ -88,25 +87,43 @@ let timer = setInterval(function() {
   // get the difference
   let timeDiff = myDate - currentDate;
 
-  // math
-  const weekDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 7));
-  timeDiff -= weekDiff * (1000 * 60 * 60 * 24 * 7);
+  if(timeDiff <= 0) {
+    const timerDiv = document.getElementById("timer");
 
-  const dayDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-  timeDiff -= dayDiff * (1000 * 60 * 60 * 24);
+    while (timerDiv.hasChildNodes()) {
+      timerDiv.removeChild(timerDiv.firstChild);
+    }
 
-  const hourDiff = Math.floor(timeDiff / (1000 * 60 * 60));
-  timeDiff -= hourDiff * (1000 * 60 * 60);
+    timerDiv.innerHTML = "Time's up!"
+    timerDiv.style.padding = "10px";
+    timerDiv.style.margin = "2px";
+    timerDiv.style.borderRadius = "10px";
+    timerDiv.style.background = "#fcb75d";
+    timerDiv.style.fontFamily = "'Montserrat', sans-serif";
+    timerDiv.style.color =  "#001d3d";
+    timerDiv.style.fontSize = "4em";
+    timerDiv.style.textAlign = "center";    
 
-  const minuteDiff = Math.floor(timeDiff / (1000 * 60));
+  } 
+  else {
+    // math
+    const weekDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 7));
+    timeDiff -= weekDiff * (1000 * 60 * 60 * 24 * 7);
 
-  console.log(minuteDiff)
+    const dayDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    timeDiff -= dayDiff * (1000 * 60 * 60 * 24);
 
-  // display
-  document.getElementById("weeks").innerHTML=weekDiff
-  document.getElementById("days").innerHTML=dayDiff
-  document.getElementById("hours").innerHTML=hourDiff
-  document.getElementById("minutes").innerHTML=minuteDiff
+    const hourDiff = Math.floor(timeDiff / (1000 * 60 * 60));
+    timeDiff -= hourDiff * (1000 * 60 * 60);
+
+    const minuteDiff = Math.floor(timeDiff / (1000 * 60));
+
+    // display
+    document.getElementById("weeks").innerHTML=weekDiff
+    document.getElementById("days").innerHTML=dayDiff
+    document.getElementById("hours").innerHTML=hourDiff
+    document.getElementById("minutes").innerHTML=minuteDiff
+  }
 
 
 }, 1000);
